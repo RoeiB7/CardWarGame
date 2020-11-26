@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#485ED5"
+    android:layoutDirection="ltr"
+    tools:context=".GameActivity">
+
+
+    <ImageView
+        android:id="@+id/main_IMG_play"
+        android:layout_width="66dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="333dp"
+        android:layout_marginEnd="333dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/play_button_yellow" />
+
+    <ImageView
+        android:id="@+id/main_IMG_cardLeft"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="107dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_IMG_play"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583"
+        app:srcCompat="@drawable/empty_red" />
+
+    <ImageView
+        android:id="@+id/main_IMG_cardRight"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="107dp"
+        android:layout_marginEnd="216dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_IMG_play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.583"
+        app:srcCompat="@drawable/empty_red" />
+
+    <ImageView
+        android:id="@+id/main_IMG_man"
+        android:layout_width="105dp"
+        android:layout_height="195dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="105dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/main_IMG_cardLeft"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/man" />
+
+    <ImageView
+        android:id="@+id/main_IMG_woman"
+        android:layout_width="105dp"
+        android:layout_height="195dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="105dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/main_IMG_cardRight"
+        app:srcCompat="@drawable/woman" />
+
+    <TextView
+        android:id="@+id/main_LBL_scoreLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="45dp"
+        android:text="0"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/main_IMG_man"
+        app:layout_constraintEnd_toStartOf="@+id/main_IMG_cardLeft"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.492" />
+
+    <TextView
+        android:id="@+id/main_LBL_scoreRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="78dp"
+        android:text="0"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/main_IMG_woman"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/main_IMG_cardRight"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
