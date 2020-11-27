@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#485ED5"
+    android:layoutDirection="ltr"
+    tools:context=".WinnerAnnouncementActivity">
+
+    <ImageView
+        android:id="@+id/winner_IMG_leftFirework"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/fireworks" />
+
+    <ImageView
+        android:id="@+id/winner_IMG_rightFirework"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="180dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/fireworks" />
+
+    <TextView
+        android:id="@+id/winner_LBL_winnerMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="100dp"
+        android:text="Congratulations, You Won!"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/winner_IMG_winnerPlayer"
+        android:layout_width="146dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="198dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="198dp"
+        app:layout_constraintEnd_toStartOf="@+id/winner_IMG_rightFirework"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toEndOf="@+id/winner_IMG_leftFirework"
+        app:layout_constraintTop_toBottomOf="@+id/winner_LBL_winnerMessage"
+        app:srcCompat="@drawable/man" />
+
+    <TextView
+        android:id="@+id/winner_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="246dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="246dp"
+        android:layout_marginBottom="27dp"
+        android:text="Your Score: 14"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="50sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winner_IMG_winnerPlayer"
+        app:layout_constraintVertical_bias="0.672" />
+</androidx.constraintlayout.widget.ConstraintLayout>
