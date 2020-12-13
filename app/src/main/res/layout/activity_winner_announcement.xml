@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#485ED5"
+    android:layoutDirection="ltr"
+    tools:context=".WinnerAnnouncementActivity">
+
+
+    <ImageView
+        android:id="@+id/winner_IMG_leftFirework"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/winner_IMG_winnerPlayer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winner_LBL_winnerMessage"
+        app:srcCompat="@drawable/ic_fireworks" />
+
+    <ImageView
+        android:id="@+id/winner_IMG_rightFirework"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/winner_IMG_winnerPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/winner_LBL_winnerMessage"
+        app:srcCompat="@drawable/ic_fireworks" />
+
+    <TextView
+        android:id="@+id/winner_LBL_winnerMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="100dp"
+        android:text="Congratulations, You Won!"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/winner_IMG_winnerPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
+        app:layout_constraintBottom_toTopOf="@+id/winner_LBL_score"
+        app:layout_constraintEnd_toStartOf="@+id/winner_IMG_rightFirework"
+        app:layout_constraintStart_toEndOf="@+id/winner_IMG_leftFirework"
+        app:layout_constraintTop_toBottomOf="@+id/winner_LBL_winnerMessage"
+        app:srcCompat="@drawable/ic_man" />
+
+    <TextView
+        android:id="@+id/winner_LBL_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="230dp"
+        android:layout_marginEnd="230dp"
+        android:text="Your Score: 14"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winner_IMG_winnerPlayer"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/winner_EDT_winnerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="261dp"
+        android:layout_marginEnd="261dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Please enter your name"
+        android:inputType="textPersonName"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/winner_LBL_score" />
+</androidx.constraintlayout.widget.ConstraintLayout>
