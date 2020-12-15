@@ -1,9 +1,8 @@
-package com.example.cardwargame;
+package com.example.cardwargame.fragments;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +11,19 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.cardwargame.objects.Player;
+import com.example.cardwargame.R;
+import com.example.cardwargame.objects.TopTen;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Fragment_List extends Fragment {
 
 
     private ListView listView;
-    private ArrayAdapter arrayAdapter;
-    private Gson gson = new Gson();
+    private final Gson gson = new Gson();
+    private ArrayList<Player> list = new ArrayList();
 
 
     @Override
@@ -40,32 +41,34 @@ public class Fragment_List extends Fragment {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         String extractJson = sharedPreferences.getString("ttJson", "NA");
-        Log.d("String:", extractJson + "");
         TopTen tt2 = new TopTen();
         if (!extractJson.equals("NA")) {
             tt2 = gson.fromJson(extractJson, TopTen.class);
 
         }
+
         Player player = new Player(this.getArguments().getInt("winnerScore"), this.getArguments().getString("winnerName"));
 
+        //todo: change direction of list top down
+
+        if (player.getScore() != 0) {
+            tt2.getPlayers().add(player);
+            tt2.getPlayers().sort((a, b) -> Integer.compare(a.getScore(), b.getScore()));
+        }
 
 
-        //todo: check if score is higher then the lowest score
-        tt2.getPlayers().add(player);
-        tt2.getPlayers().sort((a, b) -> Integer.compare(a.getScore(), b.getScore()));
-        tt2.getPlayers().sort((a, b) -> a.getName().compareToIgnoreCase(b.getName()));
-
-        //todo: sort list
-
+        //todo: fix remove lowest score
+        if (tt2.getPlayers().size() > 10) {
+            tt2.getPlayers().remove(10);
+        }
         String ttJson = gson.toJson(tt2);
         editor.putString("ttJson", ttJson);
 
-        editor.commit();
+        editor.apply();
 
-        arrayAdapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_list_item_1, tt2.getPlayers());
+        ArrayAdapter arrayAdapter = new ArrayAdapter(view.getContext(), android.R.layout.simple_list_item_1, tt2.getPlayers());
 
         listView.setAdapter(arrayAdapter);
-
 
         return view;
     }

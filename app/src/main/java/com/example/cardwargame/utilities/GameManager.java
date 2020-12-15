@@ -1,4 +1,4 @@
-package com.example.cardwargame;
+package com.example.cardwargame.utilities;
 
 
 import android.content.Intent;
@@ -9,11 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.cardwargame.R;
+import com.example.cardwargame.activities.GameActivity;
+import com.example.cardwargame.activities.RecordsActivity;
+import com.example.cardwargame.activities.WinnerAnnouncementActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,7 +69,7 @@ public class GameManager {
     /**
      * Initial all components in Entry activity
      */
-    protected void initEntryViews(AppCompatActivity activity) {
+    public void initEntryViews(AppCompatActivity activity) {
         startGameButton = activity.findViewById(R.id.entry_BTN_startGame);
         leaderBoardButton = activity.findViewById(R.id.entry_BTN_leaderboard);
     }
@@ -74,7 +78,7 @@ public class GameManager {
     /**
      * Initial all components in Records activity
      */
-    protected void initRecordsViews(AppCompatActivity activity) {
+    public void initRecordsViews(AppCompatActivity activity) {
         list = activity.findViewById(R.id.records_LAY_list);
         map = activity.findViewById(R.id.records_LAY_map);
     }
@@ -83,7 +87,7 @@ public class GameManager {
     /**
      * Initial all components in Game activity
      */
-    protected void initGameViews(AppCompatActivity activity) {
+    public void initGameViews(AppCompatActivity activity) {
 
         playButton = activity.findViewById(R.id.main_IMG_play);
         leftCard = activity.findViewById(R.id.main_IMG_cardLeft);
@@ -97,7 +101,7 @@ public class GameManager {
     /**
      * Initial all components in Winner activity
      */
-    protected void initWinnerViews(AppCompatActivity activity) {
+    public void initWinnerViews(AppCompatActivity activity) {
         winnerImage = activity.findViewById(R.id.winner_IMG_winnerPlayer);
         title = activity.findViewById(R.id.winner_LBL_winnerMessage);
         score = activity.findViewById(R.id.winner_LBL_score);
@@ -110,7 +114,7 @@ public class GameManager {
     /**
      * Enter full screen mode by hiding navigation bar and status bar
      */
-    protected void enterFullScreen(AppCompatActivity activity) {
+    public void enterFullScreen(AppCompatActivity activity) {
         activity.getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -123,7 +127,7 @@ public class GameManager {
     /**
      * Moving into second activity (Winner Announcement) and passing winner identity and score
      */
-    private void gameOver(AppCompatActivity activity) {
+    public void gameOver(AppCompatActivity activity) {
         Intent intent = new Intent(activity, WinnerAnnouncementActivity.class);
         intent.putExtra(WINNER, winningPlayer);
         intent.putExtra(SCORE, winnerScore);
@@ -132,13 +136,13 @@ public class GameManager {
     }
 
 
-    protected void startGame(AppCompatActivity activity) {
+    public void startGame(AppCompatActivity activity) {
         Intent intent = new Intent(activity, GameActivity.class);
         activity.startActivity(intent);
         activity.finish();
     }
 
-    protected void leaderBoard(AppCompatActivity activity) {
+    public void leaderBoard(AppCompatActivity activity) {
         Intent intent = new Intent(activity, RecordsActivity.class);
         activity.startActivity(intent);
         activity.finish();
@@ -166,7 +170,7 @@ public class GameManager {
     /**
      * Shuffling cards and split them into two decks
      */
-    protected void shuffleAndSplit() {
+    public void shuffleAndSplit() {
 
         Collections.shuffle(cardsID); //To check tie situation put this line in comment
         firstHalfDeck = cardsID.subList(0, 26);
@@ -177,7 +181,7 @@ public class GameManager {
     /**
      * Initial main arraylist of cards with their id's
      */
-    protected void initCardsArrayList(AppCompatActivity activity) {
+    public void initCardsArrayList(AppCompatActivity activity) {
         cardsID = new ArrayList<>();
 
         int CARDS_TYPE = 4;
@@ -213,7 +217,7 @@ public class GameManager {
      * Displaying two random cards and updated score,
      * At the end of the game calling gameOver() function.
      */
-    protected void nextRound(AppCompatActivity activity) {
+    public void nextRound(AppCompatActivity activity) {
 
         if (decksCounter <= 25) {
             leftCard.setImageResource(firstHalfDeck.get(decksCounter));
@@ -250,7 +254,7 @@ public class GameManager {
     /**
      * Getting winner identity and score from first activity (Game activity) and displaying
      */
-    protected void getDataFromGameActivity(AppCompatActivity activity) {
+    public void getDataFromGameActivity(AppCompatActivity activity) {
         Intent intent = activity.getIntent();
         String winnerName = intent.getStringExtra(WINNER);
         int winnerScore = intent.getIntExtra(SCORE, -1);
@@ -271,14 +275,14 @@ public class GameManager {
         }
     }
 
-    protected int getScoreFromGameActivity(AppCompatActivity activity) {
+    public int getScoreFromGameActivity(AppCompatActivity activity) {
         Intent intent = activity.getIntent();
         int winnerScore = intent.getIntExtra(SCORE, -1);
         return winnerScore;
 
     }
 
-    protected void startDelay(AppCompatActivity activity) {
+    public void startDelay(AppCompatActivity activity) {
 
         cdt = new CountDownTimer(53000, 1000) {
             @Override
@@ -303,7 +307,7 @@ public class GameManager {
         }.start();
     }
 
-    protected void playSound(int rawId, AppCompatActivity activity) {
+    public void playSound(int rawId, AppCompatActivity activity) {
 
         mp = MediaPlayer.create(activity, rawId);
         mp.setOnCompletionListener(mp -> {

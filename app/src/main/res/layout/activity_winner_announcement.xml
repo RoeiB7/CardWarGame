@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#485ED5"
     android:layoutDirection="ltr"
-    tools:context=".WinnerAnnouncementActivity">
+    tools:context=".activities.WinnerAnnouncementActivity">
 
 
     <ImageView

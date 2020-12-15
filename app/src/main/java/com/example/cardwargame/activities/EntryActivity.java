@@ -1,10 +1,12 @@
-package com.example.cardwargame;
+package com.example.cardwargame.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import com.example.cardwargame.utilities.GameManager;
+import com.example.cardwargame.R;
 
 public class EntryActivity extends AppCompatActivity {
 

@@ -33,9 +33,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".RecordsActivity" />
+        <activity android:name=".activities.RecordsActivity" />
         <activity
-            android:name=".EntryActivity"
+            android:name=".activities.EntryActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,10 +44,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".WinnerAnnouncementActivity"
+            android:name=".activities.WinnerAnnouncementActivity"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".GameActivity"
+            android:name=".activities.GameActivity"
             android:screenOrientation="landscape" />
     </application>
 

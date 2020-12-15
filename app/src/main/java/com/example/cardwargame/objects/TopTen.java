@@ -1,4 +1,4 @@
-package com.example.cardwargame;
+package com.example.cardwargame.objects;
 
 import java.util.ArrayList;
 

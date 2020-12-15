@@ -8,7 +8,7 @@
     android:baselineAligned="false"
     android:layoutDirection="ltr"
     android:orientation="horizontal"
-    tools:context=".RecordsActivity">
+    tools:context=".activities.RecordsActivity">
 
 
     <FrameLayout
