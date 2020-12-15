@@ -34,5 +34,8 @@ public class RecordsActivity extends AppCompatActivity {
         fragment_list.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().add(R.id.records_LAY_list, fragment_list).commit();
 
+        //Fragment_Map fragment_map = new Fragment_Map();
+        //getSupportFragmentManager().beginTransaction().add(R.id.fragment_LAY_map, fragment_map).commit();
+
     }
 }
