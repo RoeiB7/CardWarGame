@@ -40,18 +40,18 @@ public class Fragment_List extends Fragment {
         SharedPreferences sharedPreferences = view.getContext().getSharedPreferences("com.example.cardwargame", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        topTen.clear();
-
-        String listJson = sharedPreferences.getString("ttJson", "NA");
-        topTen = gson.fromJson(listJson, ArrayList.class);
-
+        if (topTen.size() > 0) {
+            String listJson = sharedPreferences.getString("ttJson", "NA");
+            topTen = gson.fromJson(listJson, ArrayList.class);
+        }
         Player player = new Player(this.getArguments().getInt("winnerScore"), this.getArguments().getString("winnerName"));
 
         //todo: add shared sharedPreferences for saving list
 
         //todo: check if score is higher then the lowest score
-        topTen.add(player);
-
+        if (player.getScore() != -1 && !player.getName().equals(null)) {
+            topTen.add(player);
+        }
 
         //todo: sort list
 
@@ -74,4 +74,5 @@ public class Fragment_List extends Fragment {
         listView = view.findViewById(R.id.fragment_LAY_list);
 
     }
+
 }
