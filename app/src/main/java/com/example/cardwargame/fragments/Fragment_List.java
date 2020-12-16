@@ -23,7 +23,6 @@ public class Fragment_List extends Fragment {
 
     private ListView listView;
     private final Gson gson = new Gson();
-    private ArrayList<Player> list = new ArrayList();
 
 
     @Override
