@@ -17,13 +17,14 @@ import com.example.cardwargame.objects.TopTen;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Fragment_List extends Fragment {
 
 
     private ListView listView;
     private final Gson gson = new Gson();
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,15 +49,12 @@ public class Fragment_List extends Fragment {
 
         Player player = new Player(this.getArguments().getInt("winnerScore"), this.getArguments().getString("winnerName"));
 
-        //todo: change direction of list top down
 
         if (player.getScore() != 0) {
             tt2.getPlayers().add(player);
-            tt2.getPlayers().sort((a, b) -> Integer.compare(a.getScore(), b.getScore()));
+            tt2.getPlayers().sort(DESCENDING_COMPARATOR);
         }
 
-
-        //todo: fix remove lowest score
         if (tt2.getPlayers().size() > 10) {
             tt2.getPlayers().remove(10);
         }
@@ -75,9 +73,12 @@ public class Fragment_List extends Fragment {
     /**
      * Initial all components in List fragment
      */
-    protected void initListFragmentViews(View view) {
+    private void initListFragmentViews(View view) {
         listView = view.findViewById(R.id.fragment_LAY_list);
 
     }
+
+    public static final Comparator<Player> DESCENDING_COMPARATOR =
+            Comparator.comparingInt(Player::getScore).reversed();
 
 }
