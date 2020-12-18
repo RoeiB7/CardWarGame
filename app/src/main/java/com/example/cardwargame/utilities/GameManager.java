@@ -37,8 +37,6 @@ public class GameManager {
     private ProgressBar progressBar;
     private CountDownTimer cdt;
     private MediaPlayer mp;
-    private FrameLayout list;
-    private FrameLayout map;
 
 
     private TextView leftScore;
@@ -72,15 +70,6 @@ public class GameManager {
     public void initEntryViews(AppCompatActivity activity) {
         startGameButton = activity.findViewById(R.id.entry_BTN_startGame);
         leaderBoardButton = activity.findViewById(R.id.entry_BTN_leaderboard);
-    }
-
-
-    /**
-     * Initial all components in Records activity
-     */
-    public void initRecordsViews(AppCompatActivity activity) {
-        list = activity.findViewById(R.id.records_LAY_list);
-        map = activity.findViewById(R.id.records_LAY_map);
     }
 
 
