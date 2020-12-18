@@ -16,8 +16,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:layout_weight="1"
-        android:background="#FFEB3B" />
+        android:layout_weight="1" />
 
 
     <FrameLayout
@@ -25,7 +24,6 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
-        android:layout_weight="1"
-        android:background="#FFEB3B" />
+        android:layout_weight="1" />
 
 </LinearLayout>
