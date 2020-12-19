@@ -12,8 +12,7 @@ import com.example.cardwargame.R;
 import com.example.cardwargame.fragments.Fragment_List;
 
 public class RecordsActivity extends AppCompatActivity {
-    private FrameLayout list;
-    private FrameLayout map;
+
     private Fragment_List fragment_list;
     private MapsFragment mapsFragment;
 
@@ -27,7 +26,7 @@ public class RecordsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_records);
 
         GameManager manager = new GameManager(this);
-        initRecordsViews();
+        manager.initRecordsViews(this);
         manager.enterFullScreen(this);
         Intent intent = this.getIntent();
         String winnerName = intent.getStringExtra("winnerName");
@@ -40,15 +39,11 @@ public class RecordsActivity extends AppCompatActivity {
         fragment_list.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().add(R.id.records_LAY_list, fragment_list).commit();
 
-
         mapsFragment = new MapsFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.records_LAY_map, mapsFragment).commit();
 
 
     }
 
-    private void initRecordsViews() {
-        list = findViewById(R.id.records_LAY_list);
-        map = findViewById(R.id.records_LAY_map);
-    }
+
 }

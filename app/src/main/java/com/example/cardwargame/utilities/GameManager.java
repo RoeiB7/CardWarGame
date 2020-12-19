@@ -37,6 +37,8 @@ public class GameManager {
     private ProgressBar progressBar;
     private CountDownTimer cdt;
     private MediaPlayer mp;
+    private FrameLayout list;
+    private FrameLayout map;
 
 
     private TextView leftScore;
@@ -97,6 +99,11 @@ public class GameManager {
         leftPic = activity.findViewById(R.id.winner_IMG_leftFirework);
         rightPic = activity.findViewById(R.id.winner_IMG_rightFirework);
         winnerName = activity.findViewById(R.id.winner_EDT_winnerName);
+    }
+
+    public void initRecordsViews(AppCompatActivity activity) {
+        list = activity.findViewById(R.id.records_LAY_list);
+        map = activity.findViewById(R.id.records_LAY_map);
     }
 
 
