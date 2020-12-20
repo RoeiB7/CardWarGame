@@ -27,15 +27,11 @@ import com.google.android.gms.tasks.Task;
 public class PermissionAndLocation {
 
     private FusedLocationProviderClient client;
-    private Location userLocation;
+    public static Location userLocation;
 
 
     public PermissionAndLocation() {
 
-    }
-
-    public PermissionAndLocation(Location _userLocation) {
-        this.userLocation = _userLocation;
     }
 
     @SuppressLint("MissingPermission")
@@ -46,27 +42,19 @@ public class PermissionAndLocation {
         LocationManager locationManager = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
 
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
-            Log.d("error", "enter 3");
+
             client.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
                 @Override
                 public void onComplete(@NonNull Task<Location> task) {
                     Location location = task.getResult();
-                    Log.d("error", "enter 4");
                     if (location != null) {
                         userLocation = location;
-                        Log.d("error", "enter 5");
-                        Log.d("error", userLocation.getLatitude() + "");
-                        Log.d("error", userLocation.getLongitude() + "");
-
                     } else {
                         LocationRequest locationRequest = new LocationRequest()
                                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                                 .setInterval(10000)
                                 .setFastestInterval(1000)
                                 .setNumUpdates(1);
-
-                        Log.d("error", "enter 6");
-
 
                         LocationCallback locationCallback = new LocationCallback() {
 
@@ -81,8 +69,10 @@ public class PermissionAndLocation {
                     }
                 }
             });
+
         } else {
             activity.startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 100);
         }
     }
 
@@ -90,18 +80,9 @@ public class PermissionAndLocation {
     public void requestPermission(AppCompatActivity activity) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                 && ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            Log.d("error", "enter 1");
             getCurrentLocation(activity);
         } else {
             ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 100);
-            Log.d("error", "enter 2");
         }
     }
-
-
-    public Location getUserLocation() {
-        return userLocation;
-    }
-
-
 }
