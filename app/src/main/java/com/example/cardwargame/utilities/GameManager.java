@@ -35,6 +35,8 @@ public class GameManager {
     private Button startGameButton;
     private Button leaderBoardButton;
     private ProgressBar progressBar;
+
+
     private CountDownTimer cdt;
     private MediaPlayer mp;
     private FrameLayout list;
@@ -55,6 +57,7 @@ public class GameManager {
     private static final String WINNER = "winner";
     private static final String SCORE = "score";
     private boolean isClosed = true;
+
 
     private ArrayList<Integer> cardsID;
     private List<Integer> firstHalfDeck;
@@ -135,13 +138,11 @@ public class GameManager {
     public void startGame(AppCompatActivity activity) {
         Intent intent = new Intent(activity, GameActivity.class);
         activity.startActivity(intent);
-        activity.finish();
     }
 
     public void leaderBoard(AppCompatActivity activity) {
         Intent intent = new Intent(activity, RecordsActivity.class);
         activity.startActivity(intent);
-        activity.finish();
     }
 
 
@@ -273,8 +274,7 @@ public class GameManager {
 
     public int getScoreFromGameActivity(AppCompatActivity activity) {
         Intent intent = activity.getIntent();
-        int winnerScore = intent.getIntExtra(SCORE, -1);
-        return winnerScore;
+        return intent.getIntExtra(SCORE, -1);
 
     }
 
@@ -293,7 +293,6 @@ public class GameManager {
                     rightCard.setImageResource(R.drawable.ic_flippedcard);
                     isClosed = true;
                 }
-
             }
 
             @Override
@@ -302,6 +301,7 @@ public class GameManager {
             }
         }.start();
     }
+
 
     public void playSound(int rawId, AppCompatActivity activity) {
 
@@ -326,8 +326,14 @@ public class GameManager {
         return leaderBoardButton;
     }
 
-
     public EditText getWinnerName() {
         return winnerName;
     }
+
+
+    public CountDownTimer getCdt() {
+        return cdt;
+    }
+
+
 }

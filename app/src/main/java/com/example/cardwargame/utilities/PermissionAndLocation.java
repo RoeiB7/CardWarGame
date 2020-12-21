@@ -27,7 +27,7 @@ import com.google.android.gms.tasks.Task;
 public class PermissionAndLocation {
 
     private FusedLocationProviderClient client;
-    public static Location userLocation;
+    public static Location userLocation = new Location("");
 
 
     public PermissionAndLocation() {

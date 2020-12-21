@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#485ED5"
     android:baselineAligned="false"
+    android:gravity="center"
     android:layoutDirection="ltr"
     android:orientation="horizontal"
     tools:context=".activities.RecordsActivity">
@@ -15,15 +16,14 @@
         android:id="@+id/records_LAY_map"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:layout_weight="1" />
-
 
     <FrameLayout
         android:id="@+id/records_LAY_list"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:layout_weight="1" />
 
 </LinearLayout>

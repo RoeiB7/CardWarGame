@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.cardwargame.Interfaces.CallBack_Right;
 import com.example.cardwargame.fragments.MapsFragment;
@@ -38,12 +37,11 @@ public class RecordsActivity extends AppCompatActivity {
         String winnerName = intent.getStringExtra("winnerName");
         int winnerScore = intent.getIntExtra("winnerScore", 0);
 
-
         Bundle bundle = new Bundle();
         bundle.putString("winnerName", winnerName);
         bundle.putInt("winnerScore", winnerScore);
-        bundle.putDouble("userLat", PermissionAndLocation.userLocation.getLatitude());//fix crush when enter leaderboard from main screen
-        bundle.putDouble("userLon", PermissionAndLocation.userLocation.getLongitude());//fix crush when enter leaderboard from main screen
+        bundle.putDouble("userLat", PermissionAndLocation.userLocation.getLatitude());
+        bundle.putDouble("userLon", PermissionAndLocation.userLocation.getLongitude());
         fragment_list = new Fragment_List();
         fragment_list.setArguments(bundle);
         fragment_list.setCallBack_right(callBack_right);
@@ -60,6 +58,4 @@ public class RecordsActivity extends AppCompatActivity {
             mapsFragment.showUserLocation(lat, lon);
         }
     };
-
-
 }
